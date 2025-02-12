@@ -171,11 +171,11 @@ function calculateTotal() {
     const rows = table.getElementsByTagName('tr');
     for (let i = 1; i < rows.length; i++) { // Add by each rows.
         const midElem = rows[i].querySelector('.mid');
-        // let mid = Math.min(parseFloat(midElem.textContent), 100);
-        midElem.textContent = midElem;
+        let mid = parseFloat(midElem.textContent);
+        midElem.textContent = mid;
         const finalElem = rows[i].querySelector('.final');
-        // let final = Math.min(parseFloat(finalElem.textContent), 100);
-        finalElem.textContent = finalElem;
+        let final = parseFloat(finalElem.textContent);
+        finalElem.textContent = final;
         let totalScore = 0; 
         totalScore = mid * weights.mid + final * weights.final;
         totalScore += 10; // Add by performance.
@@ -185,8 +185,8 @@ function calculateTotal() {
         const gradeCell = rows[i].querySelector('.grade');
         const grade = getGrade(totalScore, mid, final);
         gradeCell.textContent = grade;
-        }
     }
+}
     function exportToExcel() { // Export to Excel file and upload to system by hand.
         const table = document.getElementById('gradesTable');
         const wb = XLSX.utils.table_to_book(table, {sheet: "sheet"});
