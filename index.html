@@ -171,11 +171,11 @@ function calculateTotal() {
     const rows = table.getElementsByTagName('tr');
     for (let i = 1; i < rows.length; i++) { // Add by each rows.
         const midElem = rows[i].querySelector('.mid');
-        let mid = Math.min(parseFloat(midElem.textContent), 100);
-        midElem.textContent = mid;
+        // let mid = Math.min(parseFloat(midElem.textContent), 100);
+        midElem.textContent = midElem;
         const finalElem = rows[i].querySelector('.final');
-        let final = Math.min(parseFloat(finalElem.textContent), 100);
-        finalElem.textContent = final;
+        // let final = Math.min(parseFloat(finalElem.textContent), 100);
+        finalElem.textContent = finalElem;
         let totalScore = 0; 
         totalScore = mid * weights.mid + final * weights.final;
         totalScore += 10; // Add by performance.
