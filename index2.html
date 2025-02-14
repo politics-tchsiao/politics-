@@ -151,7 +151,7 @@ const weights = {
 function calculateTotal() {
     const table = document.getElementById('gradesTable');
     const rows = table.getElementsByTagName('tr');
-    for (let i = 1; i < rows.length; i++) { // Add by each rows.
+    for (let i = 1; i < rows.length; i++) { 
         const midElem = rows[i].querySelector('.mid');
         let mid = parseFloat(midElem.textContent);
         midElem.textContent = mid;
@@ -166,7 +166,7 @@ function calculateTotal() {
         avgCell.textContent = Math.round(totalScore);
     }
 }
-    function exportToExcel() { // Export to Excel file and upload to system by hand.
+    function exportToExcel() { 
         const table = document.getElementById('gradesTable');
         const wb = XLSX.utils.table_to_book(table, {sheet: "sheet"});
         XLSX.writeFile(wb, 'grades_Politics_Required.xlsx');
