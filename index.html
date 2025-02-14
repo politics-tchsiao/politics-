@@ -167,7 +167,7 @@ function getGrade(totalScore, mid, final) {
 function calculateTotal() {
     const table = document.getElementById('gradesTable');
     const rows = table.getElementsByTagName('tr');
-    for (let i = 1; i < rows.length; i++) { // Add by each rows.
+    for (let i = 1; i < rows.length; i++) { 
         const midElem = rows[i].querySelector('.mid');
         let mid = parseFloat(midElem.textContent);
         midElem.textContent = mid;
@@ -177,7 +177,7 @@ function calculateTotal() {
         let totalScore = 0; 
         totalScore = mid * weights.mid + final * weights.final;
         totalScore += 10; // Add by performance.
-        if (totalScore > 100) totalScore = 100; // Not exceed 100.
+        if (totalScore > 100) totalScore = 100; 
         const avgCell = rows[i].querySelector('.avg');
         avgCell.textContent = Math.round(totalScore); 
         const gradeCell = rows[i].querySelector('.grade');
@@ -185,7 +185,7 @@ function calculateTotal() {
         gradeCell.textContent = grade;
     }
 }
-    function exportToExcel() { // Export to Excel file and upload to system by hand.
+    function exportToExcel() { 
         const table = document.getElementById('gradesTable');
         const wb = XLSX.utils.table_to_book(table, {sheet: "sheet"});
         XLSX.writeFile(wb, 'grades_Politics_Required.xlsx');
