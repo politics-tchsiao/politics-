@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <title>Time display</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: "Times New Roman", "標楷體";
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: white;
+        }
+        p {
+            text-align: left;
+        }
+        #date {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        #time {
+            font-size: 52px;
+        }
+    </style>
+    <script>
+         function updateTime() {
+            const now = new Date();
+            const dateOptions = {day: 'numeric', month: 'long' , year: 'numeric', weekday: 'long'};
+            const date = now.toLocaleDateString('en', dateOptions);
+            const time = now.toLocaleTimeString('en', { hour12: false, hour: '2-digit', minute: '2-digit', second: '2-digit' });
+            document.getElementById('date').textContent = date;
+            document.getElementById('time').textContent = time;
+        }
+        setInterval(updateTime, 1000);
+        window.onload = updateTime;
+    </script>
+</head>
+<body>
+    <div id="date"></div>
+    <div id="time"></div>
+    <br>
+    <p>
+    內容。
+    </p>
+</body>
+</html>
