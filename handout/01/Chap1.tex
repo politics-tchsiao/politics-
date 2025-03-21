@@ -34,6 +34,21 @@
 \item \textcolor{gray}{The Government}
 \end{itemize}
 \end{frame}
+\begin{frame}{Semi-Presidential System}
+\begin{center}
+\begin{tikzpicture}
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (left) at (2, 0) {Premier};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topRight) at (8, 1.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomRight) at (8, -1.5) {Capitol};
+\draw[thin] (left.east) -- (topRight.west) node[midway, above] {Responsible for};
+\draw[thin] (left.east) -- (bottomRight.west) node[midway, below] {Responsible for};
+\draw[dashed] (topRight.south) -- (bottomRight.west) node[midway, right] {Do not responsible for};
+\end{tikzpicture}
+\end{center}
+\begin{center}
+Figure 1: An example of Semi-Presidential System.
+\end{center}
+\end{frame}
 \begin{frame}{}
 \begin{center}
 \Large{End of Chapter 1}
