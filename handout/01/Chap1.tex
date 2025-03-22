@@ -18,29 +18,30 @@
 \end{frame}
 \begin{frame}{Mutual Encouragement}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{mc.png}
+\includegraphics[width=0.4\textwidth]{mc.png}
 \end{center}
 \begin{center}
-Without thinking after learning, then loss; otherwise, then lazy.
+學而不思則罔，思而不學則殆。 \\
+Learning without thought puts effort in vain. Thought without learning leads to waste. 
 \end{center}
 \flushright Confucius
 \end{frame}
-\begin{frame}{Healer or Killer}
-  \begin{minipage}{0.45\textwidth}
+\begin{frame}{Angel or Demon}
+  \begin{minipage}{0.4\textwidth}
   \begin{center}
   \includegraphics[width=\textwidth]{heal.png}
   \end{center}
   \begin{center}
-  May be healer in the your grade.
+  May be an angel in the your grade.
   \end{center}
   \end{minipage}
   \hfill
-  \begin{minipage}{0.45\textwidth}
+  \begin{minipage}{0.4\textwidth}
   \begin{center}
   \includegraphics[width=\textwidth]{kill.png}
   \end{center}
   \begin{center}
-  May be killer in the examination.
+  May be a demon in the examination.
   \end{center}
   \end{minipage}
 \end{frame}
@@ -65,16 +66,16 @@ Without thinking after learning, then loss; otherwise, then lazy.
 \begin{frame}{Semi-Presidential System}
 \begin{center}
 \begin{tikzpicture}
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (left) at (2, 0) {Premier};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (left) at (2, 0) {Executive};
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topRight) at (8, 1.5) {President};
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomRight) at (8, -1.5) {Capitol};
-\draw[thin] (left.east) -- (topRight.west) node[midway, above] {Responsible for};
-\draw[thin] (left.east) -- (bottomRight.west) node[midway, below] {Responsible for};
-\draw[dashed] (topRight.south) -- (bottomRight.west) node[midway, right] {Do not responsible for};
+\draw[->] (left.east) -- (topRight.south) node[midway, above] {Responsible for};
+\draw[<->] (left.east) -- (bottomRight.north) node[midway, below] {Responsible for};
+\draw[dashed] (topRight.south) -- (bottomRight.north) node[midway, right] {Do not responsible for};
 \end{tikzpicture}
 \end{center}
 \begin{center}
-Figure 1: An example of Semi-Presidential System.
+Figure I: An example of Semi-Presidential System.
 \end{center}
 \end{frame}
 \begin{frame}{R.O.C. Semi-Presidential System}
@@ -83,18 +84,16 @@ Figure 1: An example of Semi-Presidential System.
   \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomLeft) at (6, -1.5) {Judicial Yuan};
   \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topLeft) at (4, 1.5) {Supervisor Yuan};
   \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (left) at (2, 0) {Examinator Yuan};
-  \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topRight) at (10, 1.5) {Executive Yuan};
+  \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topRight) at (10.5, 1.5) {Executive Yuan};
   \node[draw, circle, minimum size=0.3cm] (circleleft) at (2, -1.5) {銓敘部};
   \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomRight) at (9, -1.5) {Capitol};
   \draw[<->] (topRight.west) -- (bottomRight.north) node[midway, right] {Responsible for};
-  \draw[->] (topLeft.south) -- (bottomRight.north) node[midway, right] {Supervisor to};
+  \draw[->] (topLeft.east) -- (bottomRight.north) node[midway, left] {Supervisor to};
   \draw[->] (topLeft.east) -- (topRight.west) node[midway, below] {Supervisor to};
-  \draw[->] (bottomLeft.north) -- (topRight.west) node[midway, above] {Check};
-  \draw[->] (bottomLeft.east) -- (bottomRight.west) node[midway, above] {Check};
   \end{tikzpicture}
   \end{center}
 \begin{center}
-Figure 1: An example of R.O.C. Semi-Presidential System.
+Figure II: An example of R.O.C. Semi-Presidential System.
 \end{center}
 \end{frame}
 \begin{frame}{}
