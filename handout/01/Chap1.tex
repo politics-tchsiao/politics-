@@ -63,29 +63,29 @@ May be a demon in the examination.
 \item \textcolor{gray}{The Government}
 \end{itemize}
 \end{frame}
-\begin{frame}{A System of our government I}
+\begin{frame}{A System of the government I}
 \begin{center}
 \begin{tikzpicture}
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (mid) at (1, -0.5) {Assembly};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (1, -1.5) {Executive \\ Cabinet header is PM};
-\draw[->] (top.south) -- (mid.north) node[midway, left] {Elect};
-\draw[->] (mid.south) -- (bottom.north) node[midway, left] {Elect};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (1, -2.5) {\begin{tabular}{c} Executive \\ Cabinet header is PM \end{tabular}};
+\draw[->] (top.south) -- (mid.north);
+\draw[->] (mid.south) -- (bottom.north);
 \end{tikzpicture}
 \end{center}
 \begin{center}
 Parliamentary system.
 \end{center}
 \end{frame}
-\begin{frame}{A System of our government II}
+\begin{frame}{A System of the government II}
 \begin{center}
 \begin{tikzpicture}
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (0, -0.5) {Assembly};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (2, -0.5) {President};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (2, -2.5) {Cabinet};
-\draw[->] (top.south) -- (midL.north) node[midway, left] {Elect};
-\draw[->] (top.south) -- (midR.north) node[midway, left] {Elect};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (-1, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (3, -0.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (3, -2.5) {Cabinet};
+\draw[->] (top.south) -- (midL.north);
+\draw[->] (top.south) -- (midR.north);
 \draw[->] (midR.south) -- (bottom.north) ;
 \draw[<->, dashed] (midL.east) -- (midR.west);
 \end{tikzpicture}
@@ -94,17 +94,17 @@ Parliamentary system.
 President system.
 \end{center}
 \end{frame}
-\begin{frame}{A System of our government III}
+\begin{frame}{A System of the government III}
 \begin{minipage}{0.45\textwidth}
 \begin{center}
 \begin{tikzpicture}
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (0, -0.5) {Assembly};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (2, -0.5) {President};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (0, -2.5) {Cabinet};
-\node(1) at (2, -2.5) {};
-\draw[->] (top.south) -- (midL.north) node[midway, left] {Elect};
-\draw[->] (top.south) -- (midR.north) node[midway, left] {Elect};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (-1, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (3, -0.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (-1, -2.5) {Cabinet};
+\node(1) at (3, -2.5) {};
+\draw[->] (top.south) -- (midL.north);
+\draw[->] (top.south) -- (midR.north);
 \draw[->] (midR.south) -- (bottom.east);
 \draw[->, dashed] (1.center) -- (bottom.east);
 \draw[->, dashed] (1.center) -- (midR.south);
@@ -121,12 +121,12 @@ Premier-President system.
 \begin{center}
 \begin{tikzpicture}
 \node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (0, -0.5) {Assembly};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (2, -0.5) {President};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (2, -2.5) {Cabinet};
-\node(1) at (0, -2.5) {};
-\draw[->] (top.south) -- (midL.north) node[midway, left] {Elect};
-\draw[->] (top.south) -- (midR.north) node[midway, left] {Elect};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (-1, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (3, -0.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (3, -2.5) {Cabinet};
+\node(1) at (-1, -2.5) {};
+\draw[->] (top.south) -- (midL.north);
+\draw[->] (top.south) -- (midR.north);
 \draw[<->, dashed] (midL.east) -- (midR.west);
 \draw[->] (midR.south) -- (bottom.north);
 \draw[->, dotted] (bottom.north) -- (midR.south) ;
