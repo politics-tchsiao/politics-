@@ -27,7 +27,7 @@ Learning without thought puts effort in vain. Thought without learning leads to 
 \flushright Confucius
 \end{frame}
 \begin{frame}{Angel or Demon}
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.45\textwidth}
 \begin{center}
 \includegraphics[width=\textwidth]{heal.png}
 \end{center}
@@ -36,7 +36,7 @@ May be an angel in the your grade.
 \end{center}
 \end{minipage}
 \hfill
-\begin{minipage}{0.4\textwidth}
+\begin{minipage}{0.45\textwidth}
 \begin{center}
 \includegraphics[width=\textwidth]{kill.png}
 \end{center}
@@ -63,42 +63,81 @@ May be a demon in the examination.
 \item \textcolor{gray}{The Government}
 \end{itemize}
 \end{frame}
-\begin{frame}{Semi-Presidential System}
+\begin{frame}{A System of our government I}
 \begin{center}
 \begin{tikzpicture}
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (left) at (2, 0) {Executive};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topRight) at (8, 1.5) {President};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomRight) at (8, -1.5) {Capitol};
-\draw[->] (left.east) -- (topRight.south) node[midway, above] {Responsible for};
-\draw[<->] (left.east) -- (bottomRight.north) node[midway, below] {Responsible for};
-\draw[dashed] (topRight.south) -- (bottomRight.north) node[midway, right] {Do not responsible for};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (mid) at (1, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (1, -1.5) {Executive \\ Cabinet header is PM};
+\draw[->] (top.south) -- (mid.north) node[midway, left] {Elect};
+\draw[->] (mid.south) -- (bottom.north) node[midway, left] {Elect};
 \end{tikzpicture}
 \end{center}
 \begin{center}
-Figure I: An example of Semi-Presidential System.
+Parliamentary system.
 \end{center}
 \end{frame}
-\begin{frame}{R.O.C. Semi-Presidential System}
+\begin{frame}{A System of our government II}
 \begin{center}
 \begin{tikzpicture}
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomLeft) at (6, -1.5) {Judicial Yuan};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topLeft) at (4, 1.5) {Supervisor Yuan};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (left) at (2, 0) {Examinator Yuan};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (topRight) at (10.5, 1.5) {Executive Yuan};
-\node(1) at (4.5, -1.5) {}; \node(2) at (4.5, -2.5) {}; \node(3) at (6, -2.5) {}; % Empty nodes to implement the back-selfing line.
-\node[draw, circle, minimum size=0.3cm] (circleleft) at (2, -1.5) {銓敘部};
-\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottomRight) at (9, -1.5) {Capitol};
-\draw[<->] (topRight.west) -- (bottomRight.north) node[midway, right] {Responsible for};
-\draw[->] (topLeft.east) -- (bottomRight.north) node[midway, left] {Supervisor to};
-\draw[->] (topLeft.east) -- (topRight.west) node[midway, below] {Supervisor to};
-\draw[-] (bottomLeft.west) -- (1.center) (1.center) -- (2.center) (2.center) -- (3.center); % Back-selfing line. Thanks to Prof. Chih-Jen, Lin.
-\draw[->] (3.center) -- (bottomLeft.south) node[midway, right] {Check};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (0, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (2, -0.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (2, -2.5) {Cabinet};
+\draw[->] (top.south) -- (midL.north) node[midway, left] {Elect};
+\draw[->] (top.south) -- (midR.north) node[midway, left] {Elect};
+\draw[->] (midR.south) -- (bottom.north) ;
+\draw[<->, dashed] (midL.east) -- (midR.west);
 \end{tikzpicture}
 \end{center}
 \begin{center}
-Figure II: An example of R.O.C. Semi-Presidential System. \\
-\flushleft \tiny{Thanks to Prof. Rong-Hsiang, Tsay}
+President system.
 \end{center}
+\end{frame}
+\begin{frame}{A System of our government III}
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (0, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (2, -0.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (0, -2.5) {Cabinet};
+\node(1) at (2, -2.5) {};
+\draw[->] (top.south) -- (midL.north) node[midway, left] {Elect};
+\draw[->] (top.south) -- (midR.north) node[midway, left] {Elect};
+\draw[->] (midR.south) -- (bottom.east);
+\draw[->, dashed] (1.center) -- (bottom.east);
+\draw[->, dashed] (1.center) -- (midR.south);
+\draw[->, dotted] (bottom.north) -- (midL.south);
+\draw[<->, dashed] (midL.east) -- (midR.west);
+\end{tikzpicture}
+\end{center}
+\begin{center}
+Premier-President system.
+\end{center}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\textwidth}
+\begin{center}
+\begin{tikzpicture}
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (top) at (1, 1.5) {Electorate};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midL) at (0, -0.5) {Assembly};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (midR) at (2, -0.5) {President};
+\node[draw, rectangle, minimum width=1cm, minimum height=1cm] (bottom) at (2, -2.5) {Cabinet};
+\node(1) at (0, -2.5) {};
+\draw[->] (top.south) -- (midL.north) node[midway, left] {Elect};
+\draw[->] (top.south) -- (midR.north) node[midway, left] {Elect};
+\draw[<->, dashed] (midL.east) -- (midR.west);
+\draw[->] (midR.south) -- (bottom.north);
+\draw[->, dotted] (bottom.north) -- (midR.south) ;
+\draw[-, dotted](bottom.west) -- (1.center);
+\draw[->, dotted] (1.center) -- (midL.south);
+\end{tikzpicture}
+\end{center}
+\begin{center}
+President-pralimentary system.
+\end{center}
+\end{minipage}
 \end{frame}
 \begin{frame}{Endeavor or Laid flat}
 \begin{center}
