@@ -6,6 +6,9 @@
 \usepackage{xeCJK}
 \usepackage{setspace}
 \usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
 \setCJKmainfont{標楷體-繁}
 \setmainfont{Times New Roman}
 \setcounter{framenumber}{-1}
@@ -23,11 +26,11 @@
 \setbeamertemplate{subsection in toc}[ball unnumbered]
 \setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{frametitle}{
-\vspace*{-1ex}
-\begin{center}
-\vbox{\strut\fontspec{Times New Roman}\insertframetitle\strut}
-\end{center}
-\vspace*{-5ex}
+  \vspace*{-1ex}
+  \begin{center}
+  \vbox{\strut\fontspec{Times New Roman}\insertframetitle\strut}
+  \end{center}
+  \vspace*{-5ex}
 }
 \setbeamerfont{block title}{family=\fontspec{Times New Roman}}
 \setbeamerfont{frametitle}{family=\fontspec{Times New Roman}}
@@ -41,28 +44,28 @@
 \setbeamercolor{date in head/foot}{bg=white, fg=black}
 \setbeamercolor{page in head/foot}{bg=white, fg=black}
 \setbeamertemplate{footline}{
-\leavevmode%
+  \leavevmode%
 \hbox{%
-\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
-\usebeamerfont{framenumber}\fontspec{Times New Roman}\textcolor[RGB]{80,80,80}{\insertframenumber{}\hspace*{0.15em} / \hspace*{0.15em}\inserttotalframenumber} \hspace*{0.2em}
-\end{beamercolorbox}}%
-\vskip1pt%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
+      \usebeamerfont{framenumber}\fontspec{Times New Roman}\textcolor[RGB]{80,80,80}{\insertframenumber{}\hspace*{0.15em} / \hspace*{0.15em}\inserttotalframenumber} \hspace*{0.2em}
+    \end{beamercolorbox}}%
+  \vskip1pt%
 }
 \setbeamertemplate{headline}{
-\leavevmode%
-\hbox{%
-\begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,left]{section in head/foot}%
-\hspace*{1.3em}\insertsection
-\end{beamercolorbox}}%
-\vskip1pt%
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,left]{section in head/foot}%
+      \hspace*{1.3em}\insertsection
+    \end{beamercolorbox}}%
+  \vskip1pt%
 }
-\setstretch{1.15}
+\setstretch{1.2}
 \setbeamercolor{block body}{bg=lightyellow}
 \setbeamercolor{block title}{bg=yellow!55!white, fg=black}
 \setbeamertemplate{itemize items}[square]
 \newenvironment{coloreditemize}[1][]{%
-\begin{itemize}[#1]%
-\setbeamercolor{item}{fg=#1}%
+  \begin{itemize}[#1]%
+    \setbeamercolor{item}{fg=#1}%
 }{%
-\end{itemize}%
+  \end{itemize}%
 }
