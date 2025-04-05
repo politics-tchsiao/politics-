@@ -173,9 +173,23 @@ Politics is the main subject of studying Politics Science, we must observe that 
 <b>Notice</b>
 <ol>
 <li>Please <span style="color:red">reject</span> any buying, lending, selling or other behaviors to access our materials.</li>
-<li>AEP must follow in the end of the semester, if you need a point more, just come and ask problem.</li>
-<li>Every examinations must given in Mandarin, you can only answer in Mandarin excepts English if you are foreigners.</li>
 </ol>
+Last modified on 
+<script>
+function formatLastModified() {
+const months = ["Jan.", "Feb.", "Mar.", "Apr.", "May.", "Jun.", "Jul.", "Aug.", "Sep.", "Oct.", "Nov.", "Dec."];
+let date = new Date(document.lastModified);
+let day = String(date.getDate()).padStart(2, '0');  
+let month = months[date.getMonth()];
+let year = date.getFullYear();
+let hours = String(date.getHours()).padStart(2, '0');
+let minutes = String(date.getMinutes()).padStart(2, '0');
+let seconds = String(date.getSeconds()).padStart(2, '0');
+let timezone = "NST";  
+return `${day} ${month} ${year} ${hours}:${minutes}:${seconds} ${timezone}`;
+}
+document.write(formatLastModified());
+</script>.
 </div>
 </body>
 </html>
