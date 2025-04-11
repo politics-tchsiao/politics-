@@ -1,7 +1,7 @@
 \documentclass{beamer}
 \usepackage{handout}
-\title{}
-\author{}
+\title{PS-1006: Politics}
+\author{T. Siu}
 \date{}
 \begin{document}
 \fontspec{Times New Roman}
@@ -46,6 +46,21 @@
 \item Make your heart feel warm.
 \end{itemize}
 $\rightarrow$ An idealize instructor.
+\end{frame}
+\begin{frame}{Hierarchial}
+\begin{center}
+\begin{tikzpicture}
+\node (1) at (1,-1) {\begin{tabular}{c} Legislative \\ Students \end{tabular}};
+\node (2) at (5,-1) {\begin{tabular}{c} Executive \\ Instructor \end{tabular}};
+\node (3) at (3,2) {\begin{tabular}{c} Supervise \\ TAs and \hspace{0.35em} \includegraphics[width=0.15\textwidth]{supervise.png} \ \end{tabular}};
+\node (4) at (3,-3) {\begin{tabular}{c} Judicial \\ School \end{tabular}};
+\draw[<->] (1) -- (2);
+\draw[->] (3) -- (1);
+\draw[->] (3) -- (2);
+\draw[->, dotted] (4) -- (1);
+\draw[->, dotted] (4) -- (2);
+\end{tikzpicture}
+\end{center}
 \end{frame}
 \begin{frame}{Course Information}
 \begin{itemize}
