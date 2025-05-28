@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Draw Lots System</title>
+    <style>
+        body {
+            font-family: 'Microsoft JhengHei', sans-serif;
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            line-height: 1.6;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .input-section {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 5px;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        .items-list {
+            margin: 20px 0;
+            padding: 15px;
+            background-color: #f5f5f5;
+            border-radius: 4px;
+            min-height: 100px;
+        }
+        
+        .item {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 3px;
+            font-size: 14px;
+        }
+        
+        .result {
+            text-align: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: #d32f2f;
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #fff3cd;
+            border: 2px solid #ffeaa7;
+            border-radius: 4px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .buttons {
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Draw Lots System</h1>
+        
+        <div class="input-section">
+            <label for="itemInput">Single Item Input:</label>
+            <input type="text" id="itemInput" placeholder="Enter item name, press Enter or click Add">
+        </div>
+        
+        <div class="input-section">
+            <label for="batchInput">Batch Add:</label>
+            <input type="text" id="prefixInput" placeholder="Prefix (e.g., ID)" style="width: 23%; margin-right: 2%;">
+            <input type="text" id="startNum" placeholder="Start (e.g., 001)" style="width: 18%; margin-right: 2%;">
+            <input type="text" id="endNum" placeholder="End (e.g., 101)" style="width: 18%; margin-right: 2%;">
+            <input type="number" id="padLength" placeholder="Digits" style="width: 15%; margin-right: 2%;">
+            <input type="number" id="drawCount" placeholder="Draw Count" style="width: 18%;">
+        </div>
+        
+        <div class="buttons">
+            <button onclick="addItem()">Add Item</button>
+            <button onclick="addBatch()">Batch Add</button>
+            <button onclick="clearItems()">Clear All</button>
+        </div>
+        
+        <div class="items-list" id="itemsList">
+            <p style="color: #666; text-align: center;">No items added yet</p>
+        </div>
+        
+        <div class="input-section">
+            <label for="drawCountInput">Draw Count:</label>
+            <input type="number" id="drawCountInput" placeholder="Default is 1" min="1" style="width: 200px;">
+        </div>
+        
+        <div class="buttons">
+            <button onclick="drawLottery()" id="drawButton" disabled>Draw Lots</button>
+        </div>
+        
+        <div class="result" id="result">
+            Waiting for draw lots result...
+        </div>
+    </div>
+
+    <script>
+        let items = [];
+        
+        function addBatch() {
+            const prefix = document.getElementById('prefixInput').value.trim();
+            const startStr = document.getElementById('startNum').value.trim();
+            const endStr = document.getElementById('endNum').value.trim();
+            const padLength = parseInt(document.getElementById('padLength').value);
+            
+            if (prefix === '') {
+                alert('Please enter a prefix.');
+                return;
+            }
+            
+            const startNum = parseInt(startStr);
+            const endNum = parseInt(endStr);
+            
+            if (isNaN(startNum) || isNaN(endNum)) {
+                alert('Please enter valid start and end numbers.');
+                return;
+            }
+            
+            if (startNum > endNum) {
+                alert('Start number cannot be greater than end number.');
+                return;
+            }
+            
+            if ((endNum - startNum + 1) > 200) {
+                alert('Maximum 200 items can be added at once.');
+                return;
+            }
+            
+            // Determine padding length
+            let targetPadLength;
+            if (!isNaN(padLength) && padLength > 0) {
+                // User specified digits
+                targetPadLength = padLength;
+            } else if (startStr.startsWith('0') || endStr.startsWith('0')) {
+                // Auto detect: use the length of start or end number
+                targetPadLength = Math.max(startStr.length, endStr.length);
+            } else {
+                // No padding
+                targetPadLength = 0;
+            }
+            
+            let addedCount = 0;
+            for (let i = startNum; i <= endNum; i++) {
+                let numStr;
+                if (targetPadLength > 0) numStr = i.toString().padStart(targetPadLength, '0');
+                else numStr = i.toString();
+                const newItem = prefix + numStr;
+                if (!items.includes(newItem)) {
+                    items.push(newItem);
+                    addedCount++;
+                }
+            }
+            
+            if (addedCount > 0) {
+                updateItemsList();
+                updateDrawButton();
+                alert(`Successfully added ${addedCount} items.`);
+            } else {
+                alert('All items already exist.');
+            }
+            
+            // Clear batch input fields
+            document.getElementById('prefixInput').value = '';
+            document.getElementById('startNum').value = '';
+            document.getElementById('endNum').value = '';
+            document.getElementById('padLength').value = '';
+            document.getElementById('drawCount').value = '';
+        }
+        
+        function addItem() {
+            const input = document.getElementById('itemInput');
+            const itemText = input.value.trim();
+            
+            if (itemText === '') {
+                alert('Please enter an item name.');
+                return;
+            }
+            
+            if (items.includes(itemText)) {
+                alert('This item already exists.');
+                return;
+            }
+            
+            items.push(itemText);
+            input.value = '';
+            updateItemsList();
+            updateDrawButton();
+        }
+        
+        function clearItems() {
+            items = [];
+            updateItemsList();
+            updateDrawButton();
+            document.getElementById('result').textContent = 'Waiting for draw lots result...';
+        }
+        
+        function updateItemsList() {
+            const listDiv = document.getElementById('itemsList');
+            
+            if (items.length === 0) {
+                listDiv.innerHTML = '<p style="color: #666; text-align: center;">No items added yet</p>';
+            } else {
+                listDiv.innerHTML = items.map(item => 
+                    `<span class="item">${item}</span>`
+                ).join('');
+            }
+        }
+        
+        function updateDrawButton() {
+            const drawButton = document.getElementById('drawButton');
+            drawButton.disabled = items.length < 1;
+        }
+        
+        function drawLottery() {
+            const drawCountInput = document.getElementById('drawCountInput');
+            let drawCount = parseInt(drawCountInput.value) || 1;
+            
+            if (items.length < 2) {
+                alert('At least two items are required for drawing lots.');
+                return;
+            }
+            
+            if (drawCount > items.length) {
+                alert(`Draw count cannot exceed total items (${items.length}).`);
+                return;
+            }
+            
+            if (drawCount < 1) {
+                alert('Draw count must be at least 1.');
+                return;
+            }
+            
+            // Copy items array and shuffle
+            const shuffled = [...items];
+            for (let i = shuffled.length - 1; i > 0; i--) {
+                const j = Math.floor(Math.random() * (i + 1));
+                [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+            }
+            
+            // Take first drawCount items
+            const winners = shuffled.slice(0, drawCount);
+            
+            let resultText;
+            if (drawCount === 1) {
+                resultText = `🎉 ${winners[0]} 🎉`;
+            } else {
+                resultText = `🎉 Selected Items 🎉\n${winners.join('\n')}`;
+            }
+            
+            document.getElementById('result').innerHTML = resultText.replace(/\n/g, '<br>');
+        }
+        document.getElementById('itemInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                addItem();
+            }
+        });
+    </script>
+</body>
+</html>
