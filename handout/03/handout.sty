@@ -1,0 +1,71 @@
+\ProvidesPackage{handout}
+\usetheme{default}
+\usepackage{beamerthemesplit}
+\usepackage{xcolor}
+\usepackage{fontspec}
+\usepackage{xeCJK}
+\usepackage{setspace}
+\usepackage{hyperref}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\usepackage{pgfplotstable}
+\setCJKmainfont{標楷體-繁}
+\setmainfont{Times New Roman}
+\setcounter{framenumber}{-1}
+\definecolor{Blue}{RGB}{0, 56, 168}
+\definecolor{Green}{RGB}{0,100,0}
+\definecolor{Purple}{RGB}{120,0,120}
+\definecolor{lightyellow}{RGB}{255, 255, 224}
+\setbeamertemplate{navigation symbols}{}
+\setbeamercovered{invisible}
+\setbeamercolor{item}{fg=Blue}
+\setbeamertemplate{itemize item}{\raisebox{0.1em}{\textcolor{Blue}{\rule{0.6ex}{0.6ex}}}}
+\setbeamertemplate{itemize subitem}{\raisebox{0.05em}{\textcolor{Green}{\rule{0.4ex}{0.4ex}}}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.05em}{\textcolor{Purple}{\rule{0.2ex}{0.2ex}}}}
+\setbeamertemplate{section in toc}[sections unnumbered]
+\setbeamertemplate{subsection in toc}[ball unnumbered]
+\setbeamertemplate{blocks}[rounded][shadow=true]
+\setbeamertemplate{frametitle}{
+  \vspace*{-1ex}
+  \begin{center}
+  \vbox{\strut\fontspec{Times New Roman}\insertframetitle\strut}
+  \end{center}
+  \vspace*{-5ex}
+}
+\setbeamerfont{block title}{family=\fontspec{Times New Roman}}
+\setbeamerfont{frametitle}{family=\fontspec{Times New Roman}}
+\setbeamercolor{frametitle}{fg=black, bg=white}
+\setbeamercolor{title}{fg=black, bg=white}
+\setbeamercolor{author}{fg=black, bg=white}
+\setbeamercolor{date}{fg=black, bg=white}
+\setbeamercolor{section in head/foot}{bg=white, fg=black}
+\setbeamercolor{author in head/foot}{bg=white, fg=black}
+\setbeamercolor{title in head/foot}{bg=white, fg=black}
+\setbeamercolor{date in head/foot}{bg=white, fg=black}
+\setbeamercolor{page in head/foot}{bg=white, fg=black}
+\setbeamertemplate{footline}{
+  \leavevmode%
+\hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,right]{page in head/foot}%
+      \usebeamerfont{framenumber}\fontspec{Times New Roman}\textcolor[RGB]{80,80,80}{\insertframenumber{}\hspace*{0.15em} / \hspace*{0.15em}\inserttotalframenumber} \hspace*{0.2em}
+    \end{beamercolorbox}}%
+  \vskip1pt%
+}
+\setbeamertemplate{headline}{
+  \leavevmode%
+  \hbox{%
+    \begin{beamercolorbox}[wd=\paperwidth,ht=2.5ex,dp=1.5ex,left]{section in head/foot}%
+      \hspace*{1.3em}\insertsection
+    \end{beamercolorbox}}%
+  \vskip1pt%
+}
+\setstretch{1.2}
+\setbeamercolor{block body}{bg=lightyellow}
+\setbeamercolor{block title}{bg=yellow!55!white, fg=black}
+\setbeamertemplate{itemize items}[square]
+\newenvironment{coloreditemize}[1][]{%
+  \begin{itemize}[#1]%
+    \setbeamercolor{item}{fg=#1}%
+}{%
+  \end{itemize}%
+}
