@@ -20,7 +20,7 @@
         }
         h1 {
             text-align: center;
-            color: #333;
+            color: #000000;
             margin-bottom: 30px;
         }
         .container {
@@ -128,7 +128,7 @@
             <button onclick="drawLottery()" id="drawButton" disabled>Draw Lots</button>
         </div>
         <div class="result" id="result">
-            Waiting for draw lots result...
+            Waiting for draw lots result
         </div>
     </div>
     <script>
@@ -152,8 +152,8 @@
                 alert('Start number cannot be greater than end number.');
                 return;
             }
-            if ((endNum - startNum + 1) > 200) {
-                alert('Maximum 200 items can be added at once.');
+            if ((endNum - startNum + 1) > 1000) {
+                alert('Maximum 1000 items can be added at once.');
                 return;
             }
             let targetPadLength;
@@ -203,7 +203,7 @@
             items = [];
             updateItemsList();
             updateDrawButton();
-            document.getElementById('result').textContent = 'Waiting for draw lots result...';
+            document.getElementById('result').textContent = 'Waiting for draw lots result';
         }
         function updateItemsList() {
             const listDiv = document.getElementById('itemsList');
@@ -225,12 +225,10 @@
                 alert('At least two items are required for drawing lots.');
                 return;
             }
-            
             if (drawCount > items.length) {
                 alert(`Draw count cannot exceed total items (${items.length}).`);
                 return;
             }
-            
             if (drawCount < 1) {
                 alert('Draw count must be at least 1.');
                 return;
