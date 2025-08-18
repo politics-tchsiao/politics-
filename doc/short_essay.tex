@@ -10,48 +10,49 @@
 \usepackage{amsmath, amssymb, amsthm}
 \usepackage{booktabs}
 \usepackage{tikz}
+\newcommand{\monthname}[1]{%
+\ifcase#1\or Jan.\or Feb.\or Mar.\or Apr.\or May.\or Jun.\or Jul.\or Aug.\or Sep.\or Oct.\or Nov.\or Dec.\fi}
+\renewcommand{\today}{\number\day~\monthname{\month}~\number\year}
 \setCJKmainfont{標楷體-繁}
 \setmainfont{Times New Roman}
 \pagestyle{fancy}
 \fancyhf{}
 \fancyfoot[C]{\thepage}
-\fancyhead[L]{Explanation of Essay Questions}
-\fancyhead[R]{9 Jun. 2025}
+\fancyhead[L]{Grading criteria for essay problems}
+\fancyhead[R]{\today}
 \renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
-\title{Explanation of Essay Questions}
+\title{Grading criteria for essay problems}
 \author{Tom T. Hsiao}
-\date{9 Jun. 2025}
+\date{\today}
 \begin{document}
 \setstretch{1.5}
 \thispagestyle{fancy}
 \begin{center}
-\fontsize{16pt}{16pt}\selectfont Explanation of Essay Questions
+\fontsize{16pt}{16pt}\selectfont Grading criteria for essay problems
 \end{center}
 \fontsize{14pt}{14pt}\selectfont
-The purpose of essay questions is to assess students’ abilities in comprehension, analysis, application, and writing with respect to the given topic. Through the essay format, examiners can observe students’ understanding, assimilation, and application of course content, as well as their capacity to clearly express their arguments or viewpoints. This serves as a basis for evaluating their learning outcomes. The following provides an explanation of the essay grading criteria. \\
-\\ \vspace{1em} 
+The purpose of essay questions is to assess students abilities in comprehension, analysis, application, and writing with respect to the given topic. Through the essay format can observe students understanding, assimilation, and application of course content, as well as their capacity to clearly express their arguments or viewpoints. This serves as a basis for evaluating their learning outcomes. \\
+\\ \vspace{0.5em}
 \begin{tabular}{|c|p{15cm}|}
 \hline
 Criteria & Description \\
 \hline
-29 - 30 & The essay demonstrates a comprehensive understanding of the topic with more than three examples, with clear and logical organization. Arguments are well-supported with relevant examples. \\
+28 - 30 & The essay demonstrates a comprehensive understanding of the topic, with clear and logical organization. Arguments are well-supported with relevant examples. \\
 \hline
-25 - 28 & The essay shows a good understanding of the topic with more than two examples, organized in a logical manner. Arguments are fully supported with relevant examples. \\
+24 - 27 & The essay shows a good understanding of the topic, organized in a logical manner. Arguments are fully supported with relevant examples. \\
 \hline
-21 - 24 & The essay provides a satisfactory understanding of the topic with more than one example. Arguments are generally supported with relevant examples. \\
+20 - 23 & The essay provides a satisfactory understanding of the topic. Arguments are generally supported with relevant examples. \\
 \hline
-17 - 20 & The essay demonstrates a basic understanding of the topic with one example. Arguments are supported with relevant examples. \\
+16 - 19 & The essay demonstrates a basic understanding of the topic. Arguments are supported with relevant examples. \\
 \hline
-13 - 16 & The essay demonstrates a limited understanding of the topic. Arguments are somewhat supported without examples. \\
+12 - 15 & The essay demonstrates a limited understanding of the topic. Arguments are somewhat supported without examples. \\
 \hline
-9 - 12 & The essay demonstrates a minimal understanding of the topic. Arguments are barely supported. \\
+8 - 11 & The essay demonstrates a minimal understanding of the topic. Arguments are barely supported. \\
 \hline
-5 - 8 & The essay demonstrates a rare understanding of the topic. Arguments are unsupported. \\
+4 - 7 & The essay demonstrates a rare understanding of the topic. Arguments are unsupported. \\
 \hline
-1 - 4 & The essay demonstrates no understanding of the topic. Arguments are irrelevant. \\
-\hline
-0 & The essay is blank. \\
+0 - 3 & The essay demonstrates no understanding of the topic. Arguments are irrelevant. \\
 \hline
 \end{tabular}
 \end{document}
