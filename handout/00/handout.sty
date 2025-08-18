@@ -14,6 +14,7 @@
 \usepackage{makecell}
 \usepackage{amsmath,amssymb,amsthm}
 \setCJKmainfont{標楷體-繁}
+\AtBeginDocument{\large}
 \setmainfont{Times New Roman}
 \setcounter{framenumber}{-1}
 \definecolor{Blue}{RGB}{0, 56, 168}
@@ -30,11 +31,11 @@
 \setbeamertemplate{subsection in toc}[ball unnumbered]
 \setbeamertemplate{blocks}[rounded][shadow=true]
 \setbeamertemplate{frametitle}{
-  \vspace*{-1ex}
+  \vspace*{-2ex}
   \begin{center}
-  \vbox{\strut\fontspec{Times New Roman}\insertframetitle\strut}
+  \vbox{\strut\fontspec{Times New Roman}\Large\insertframetitle\strut}
   \end{center}
-  \vspace*{-5ex}
+  \vspace*{-4ex}
 }
 \setbeamerfont{block title}{family=\fontspec{Times New Roman}}
 \setbeamerfont{frametitle}{family=\fontspec{Times New Roman}}
@@ -73,3 +74,8 @@
 }{%
   \end{itemize}%
 }
+\setbeamertemplate{itemize subitem}{\raisebox{0.1em}{\tikz\draw[Green, line width=0.3mm] (0,0) rectangle (0.2em,0.2em);}}
+\setbeamertemplate{itemize subsubitem}{\raisebox{0.1em}{\tikz\fill[Purple] (0,0) circle (0.1em);}}
+\newcommand{\monthname}[1]{%
+\ifcase#1\or Jan.\or Feb.\or Mar.\or Apr.\or May.\or Jun.\or Jul.\or Aug.\or Sep.\or Oct.\or Nov.\or Dec.\fi}
+\renewcommand{\today}{\number\day~\monthname{\month}~\number\year}
